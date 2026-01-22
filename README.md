@@ -16,8 +16,8 @@ Official Pytorch implementation of our model.
 
 Train
 --
-python tools/train.py --config
+`python tools/train.py --config`
 
 Test
 --
-python tools/test.py --config --ckpt
+`python tools/test.py --config --ckpt`
