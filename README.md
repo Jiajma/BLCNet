@@ -65,3 +65,52 @@ SSIM evaluates the similarity between two images in terms of **luminance**, **co
 $$
 \mathrm{SSIM}(x,y)=\frac{(2\mu_x\mu_y+C_1)(2\sigma_{xy}+C_2)}{(\mu_x^2+\mu_y^2+C_1)(\sigma_x^2+\sigma_y^2+C_2)} \qquad 
 $$
+
+## Statistical Consistency with the Multiplicative Speckle Noise Model
+
+In this study, we assess whether the despeckling results remain consistent with the assumed **multiplicative speckle noise model** in SAR by comparing the statistical distributions of the residual noise.
+
+We assume the observed SAR image follows
+
+$$
+Y = X \cdot N,
+$$
+
+where $X$ is the ideal noise-free (clean) image and $N$ denotes speckle noise (typically satisfying $\mathbb{E}[N]=1$).
+
+### Ratio Image Construction
+
+To characterize the distribution of the residual noise after despeckling, we construct a **ratio image**:
+
+$$
+R = \frac{Y}{\hat{X}+\varepsilon},
+$$
+
+where $\hat{X}$ is the despeckled output and $\varepsilon$ is a small constant introduced to avoid division by zero. If $\hat{X}\approx X$, then
+
+$$
+R \approx \frac{X\cdot N}{X}=N,
+$$
+
+meaning that $R$ can be regarded as an estimate of the speckle component $N$, and its histogram should match the distribution of “pure noise”.
+
+### Histogram-Based Similarity Measurement
+
+Accordingly, we compute and compare histograms for:
+1. The noise image (or noise factor) $N$ synthesized from clean images under the assumed noise model;
+2. The ratio image $R$ corresponding to the despeckling result.
+
+We further compute the histogram mean and standard deviation $(\mu,\sigma)$ to describe first- and second-order statistics, and employ the **Bhattacharyya distance** to quantify distribution similarity. Let the normalized histograms (probability mass functions) be $p(i)$ and $q(i)$. The Bhattacharyya coefficient is defined as
+
+$$
+BC(p,q)=\sum_i \sqrt{p(i)\,q(i)},
+$$
+
+and the corresponding Bhattacharyya distance is
+
+$$
+D_B(p,q)=-\ln\!\big(BC(p,q)\big).
+$$
+
+A smaller $D_B$ and closer $(\mu,\sigma)$ indicate that the ratio-image distribution is closer to the “pure speckle” distribution, suggesting that the method suppresses structural components while better preserving the statistical characteristics of speckle. Conversely, a larger discrepancy implies a distribution shift of the residual noise, which may reflect under-denoising or over-smoothing.
+
