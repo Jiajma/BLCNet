@@ -42,3 +42,26 @@ $$
 \mathrm{CNR} = 20 \cdot \log_{10}\left(\frac{\left|\mu_{\mathrm{target}}-\mu_{\mathrm{background}}\right|}{\sigma_{\mathrm{background}}}\right) \qquad 
 $$
 
+## Full-Reference Evaluation Metrics
+
+We use **Peak Signal-to-Noise Ratio (PSNR)** and the **Structural Similarity Index (SSIM)** as full-reference image quality metrics to evaluate the despeckling performance on **synthetic SAR images**.
+
+### Peak Signal-to-Noise Ratio (PSNR)
+
+PSNR measures the pixel-wise fidelity between the denoised image and the reference image. A higher PSNR indicates a smaller reconstruction error and thus better denoising performance. Let $\hat{I}$ denote the denoised image, $I$ the reference image, and $\mathrm{MSE}$ the mean squared error. $\mathrm{MAX}$ is the maximum possible pixel value:
+
+$$
+\mathrm{MSE}=\frac{1}{HW}\sum_{i=1}^{H}\sum_{j=1}^{W}\left[I(i,j)-\hat{I}(i,j)\right]^2 \qquad (8)
+$$
+
+$$
+\mathrm{PSNR}=20\cdot\log_{10}\!\left(\frac{\mathrm{MAX}}{\sqrt{\mathrm{MSE}}}\right) \qquad (9)
+$$
+
+### Structural Similarity Index (SSIM)
+
+SSIM evaluates the similarity between two images in terms of **luminance**, **contrast**, and **structure**, and is more consistent with human visual perception than purely pixel-wise metrics. A higher SSIM indicates that the denoised image is closer to the reference image. Let $\mu_x$ and $\mu_y$ be the mean intensities of images $x$ and $y$, $\sigma_x$ and $\sigma_y$ their standard deviations, and $\sigma_{xy}$ the covariance. Constants $C_1$ and $C_2$ are included to stabilize the computation:
+
+$$
+\mathrm{SSIM}(x,y)=\frac{(2\mu_x\mu_y+C_1)(2\sigma_{xy}+C_2)}{(\mu_x^2+\mu_y^2+C_1)(\sigma_x^2+\sigma_y^2+C_2)} \qquad (10)
+$$
