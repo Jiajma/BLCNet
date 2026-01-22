@@ -55,7 +55,7 @@ $$
 $$
 
 $$
-\mathrm{PSNR}=20\cdot\log_{10}\!\left(\frac{\mathrm{MAX}}{\sqrt{\mathrm{MSE}}}\right) \qquad 
+\mathrm{PSNR}=20\cdot\log_{10}\left(\frac{\mathrm{MAX}}{\sqrt{\mathrm{MSE}}}\right) \qquad 
 $$
 
 ### Structural Similarity Index (SSIM)
