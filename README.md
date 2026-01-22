@@ -66,9 +66,9 @@ $$
 \mathrm{SSIM}(x,y)=\frac{(2\mu_x\mu_y+C_1)(2\sigma_{xy}+C_2)}{(\mu_x^2+\mu_y^2+C_1)(\sigma_x^2+\sigma_y^2+C_2)} \qquad 
 $$
 
-## Statistical Consistency with the Multiplicative Speckle Noise Model
+## Residual Speckle Distribution Analysis via Ratio Images
 
-In this study, we assess whether the despeckling results remain consistent with the assumed **multiplicative speckle noise model** in SAR by comparing the statistical distributions of the residual noise.
+In this study, we examine whether the **residual noise** after despeckling remains statistically consistent with the **multiplicative speckle noise assumption** in SAR by comparing noise-related distributions.
 
 We assume the observed SAR image follows
 
@@ -113,4 +113,5 @@ D_B(p,q)=-\ln\!\big(BC(p,q)\big).
 $$
 
 A smaller $D_B$ and closer $(\mu,\sigma)$ indicate that the ratio-image distribution is closer to the “pure speckle” distribution, suggesting that the method suppresses structural components while better preserving the statistical characteristics of speckle. Conversely, a larger discrepancy implies a distribution shift of the residual noise, which may reflect under-denoising or over-smoothing.
+```
 
