@@ -76,7 +76,7 @@ $$
 Y = X \cdot N,
 $$
 
-where $X$ is the ideal noise-free (clean) image and $N$ denotes speckle noise (typically satisfying $\mathbb{E}[N]=1$).
+where $X$ is the ideal noise-free (clean) image and $N$ denotes speckle noise (typically normalized to have a **mean value of 1**).
 
 ### Ratio Image Construction
 
@@ -112,9 +112,4 @@ $$
 D_B(p,q)=-\ln\!\big(BC(p,q)\big).
 $$
 
-A smaller $D_B$ and closer $(\mu,\sigma)$ indicate that the ratio-image distribution is closer to the “pure speckle” distribution, suggesting that the method suppresses structural components while preserving speckle statistics. Conversely, a larger discrepancy implies a distribution shift in the estimated speckle component, which may reflect under-denoising or over-smoothing.
-
-
-A smaller $D_B$ and closer $(\mu,\sigma)$ indicate that the ratio-image distribution is closer to the “pure speckle” distribution, suggesting that the method suppresses structural components while better preserving the statistical characteristics of speckle. Conversely, a larger discrepancy implies a distribution shift of the residual noise, which may reflect under-denoising or over-smoothing.
-```
-
+A smaller $D_B$ and closer $(\mu,\sigma)$ indicate that the **noise component separated (removed) by the method** is statistically closer to “pure speckle”.
