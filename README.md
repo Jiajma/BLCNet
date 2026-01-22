@@ -8,8 +8,8 @@ Official Pytorch implementation of our model.
 
 Train
 --
-`python tools/train.py --config`
+`python tools/train.py --train_dir /dir --val_dir /dir --save_model_path /dir`
 
 Test
 --
-`python tools/test.py --config --ckpt`
+`python tools/test.py --test_dir /dir --save_dir /dir --model_path /dir`
