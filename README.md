@@ -23,7 +23,7 @@ We adopt three no-reference image quality metrics—**Equivalent Number of Looks
 ENL is commonly used to characterize the speckle level in **homogeneous** regions. A larger ENL indicates a smoother image and less speckle. Let $\mu$ and $\sigma^2$ denote the mean and variance of the pixel intensities within a homogeneous region, respectively:
 
 $$
-\mathrm{ENL} = \frac{\mu^2}{\sigma^2} \qquad (5)
+\mathrm{ENL} = \frac{\mu^2}{\sigma^2} \qquad 
 $$
 
 ### Mean of Ratio (MOR)
@@ -31,7 +31,7 @@ $$
 MOR measures whether the denoised image preserves the **overall brightness** of the original noisy image. An ideal despeckling result should keep $\mathrm{MOR}$ close to 1:
 
 $$
-\mathrm{MOR} = \frac{\mu_{\mathrm{denoised}}}{\mu_{\mathrm{noisy}}} \qquad (6)
+\mathrm{MOR} = \frac{\mu_{\mathrm{denoised}}}{\mu_{\mathrm{noisy}}} \qquad 
 $$
 
 ### Contrast-to-Noise Ratio (CNR)
@@ -39,6 +39,6 @@ $$
 CNR quantifies the contrast between a **target** region and a **background** region relative to the noise level of the background. Let $\mu_{\mathrm{target}}$ and $\mu_{\mathrm{background}}$ be the mean intensities of the target and background regions, respectively, and let $\sigma_{\mathrm{background}}$ be the standard deviation of the background region. A higher CNR indicates better separability between target and background after denoising:
 
 $$
-\mathrm{CNR} = 20 \cdot \log_{10}\!\left(\frac{\left|\mu_{\mathrm{target}}-\mu_{\mathrm{background}}\right|}{\sigma_{\mathrm{background}}}\right) \qquad (7)
+\mathrm{CNR} = 20 \cdot \log_{10}\left(\frac{\left|\mu_{\mathrm{target}}-\mu_{\mathrm{background}}\right|}{\sigma_{\mathrm{background}}}\right) \qquad 
 $$
 
