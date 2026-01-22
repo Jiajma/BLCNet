@@ -112,4 +112,4 @@ $$
 D_B(p,q)=-\ln\!\big(BC(p,q)\big).
 $$
 
-A smaller $D_B$ and closer $(\mu,\sigma)$ indicate that the **noise component separated (removed) by the method** is statistically closer to “pure speckle”.
+A smaller $D_B$ and closer $(\mu,\sigma)$ indicate that the **noise component removed by the method** is statistically closer to “pure speckle”.
