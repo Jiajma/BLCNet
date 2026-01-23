@@ -80,7 +80,7 @@ where $X$ is the ideal noise-free (clean) image and $N$ denotes speckle noise (t
 
 ### Ratio Image Construction
 
-To characterize the distribution of the estimated speckle component after despeckling, we construct a **ratio image**:
+To describe the speckle component implied by a despeckling result, we construct a **ratio image**:
 
 $$
 R = \frac{Y}{\hat{X}+\varepsilon},
@@ -94,13 +94,13 @@ $$
 
 meaning that $R$ can be regarded as an estimate of the speckle component $N$, and its histogram should match the distribution of “pure speckle”.
 
-### Histogram-Based Similarity Measurement
+### Pixel-Statistic and Histogram-Statistic Comparison
 
-Accordingly, we compute and compare histograms for:
-1. The noise image (or noise factor) $N$ synthesized from clean images under the assumed noise model;
-2. The ratio image $R$ corresponding to the despeckling result.
+In our implementation, we report:
+- The **mean** and **standard deviation** computed directly from the **pixel values of the ratio image** $R$ (after normalization);
+- The **Bhattacharyya distance** computed between the **histogram of $R$** and the **histogram of a reference “pure speckle” image** (or noise factor) $N$ synthesized under the assumed noise model.
 
-We further compute the histogram mean and standard deviation $(\mu,\sigma)$ to describe first- and second-order statistics, and employ the **Bhattacharyya distance** to quantify distribution similarity. Let the normalized histograms (probability mass functions) be $p(i)$ and $q(i)$. The Bhattacharyya coefficient is defined as
+Specifically, let the normalized histograms (probability mass functions) be $p(i)$ and $q(i)$. The Bhattacharyya coefficient is defined as
 
 $$
 BC(p,q)=\sum_i \sqrt{p(i)\,q(i)},
@@ -112,4 +112,4 @@ $$
 D_B(p,q)=-\ln\!\big(BC(p,q)\big).
 $$
 
-A smaller $D_B$ and closer $(\mu,\sigma)$ indicate that the **noise component removed by the method** is statistically closer to “pure speckle”.
+A smaller $D_B$ indicates that the histogram of the ratio image is closer to the histogram of “pure speckle”, i.e., the noise component separated (removed) by the method is statistically closer to pure speckle.
