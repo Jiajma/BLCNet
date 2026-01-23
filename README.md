@@ -109,7 +109,7 @@ $$
 and the corresponding Bhattacharyya distance is
 
 $$
-D_B(p,q)=-\ln\!\big(BC(p,q)\big).
+D_B(p,q)=-\ln\big(BC(p,q)\big).
 $$
 
 A smaller $D_B$ indicates that the histogram of the ratio image is closer to the histogram of “pure speckle”, i.e., the noise component separated (removed) by the method is statistically closer to pure speckle.
