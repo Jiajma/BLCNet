@@ -8,6 +8,20 @@ Official Pytorch implementation of our model.
 
 ![Figure 1](assets/figure1.png)
 
+## Training Metrics Analysis (ENL / MOI / 1−MOR / 1−VOR)
+
+![Figure 2](assets/figure2.png)
+
+To evaluate the **convergence stability** of different despeckling models during training, as well as their ability to preserve the statistical characteristics of **multiplicative speckle noise** in SAR images, we record four metrics at each epoch: **ENL**, **MOI**, **1−MOR**, and **1−VOR**.  
+- **ENL** reflects the denoising strength / smoothing level on homogeneous regions (larger values generally indicate stronger speckle suppression, but excessively large values may imply over-smoothing).  
+- **MOI** measures the global mean bias between the denoised output and the input (values closer to 0 indicate better radiometric/mean preservation).  
+- **1−MOR** and **1−VOR** quantify the deviation of the ratio residual’s first- and second-order statistics (values closer to 0 indicate that the residual better matches the multiplicative speckle assumption, i.e., improved statistical consistency).
+
+From the training curves, **BLCNet** exhibits a more stable trend after early convergence: ENL remains within a reasonable range with small fluctuations, indicating stable denoising strength and reduced risk of stage-wise over-smoothing; MOI stays close to 0 with minor variations, suggesting controlled global mean drift; meanwhile, 1−MOR and 1−VOR remain near 0 and evolve smoothly, implying that the ratio residual statistics are more stable and more consistent with the multiplicative speckle model. In contrast, **Speckle2Void** shows more pronounced spikes and oscillations in ENL, MOI, and 1−MOR/1−VOR, indicating occasional instability during training and weaker statistical consistency of the residual.
+
+**Overall, BLCNet achieves better convergence stability and robustness in terms of denoising strength, radiometric preservation, and multiplicative-noise statistical consistency.**
+
+
 Train
 --
 `python tools/train.py --train_dir /dir --val_dir /dir --save_model_path /dir`
