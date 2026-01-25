@@ -6,6 +6,8 @@ Abstract—Synthetic Aperture Radar (SAR) images, due to their coherent imaging 
 
 Official Pytorch implementation of our model.
 
+![Figure 1](assets/figure1.png)
+
 Train
 --
 `python tools/train.py --train_dir /dir --val_dir /dir --save_model_path /dir`
